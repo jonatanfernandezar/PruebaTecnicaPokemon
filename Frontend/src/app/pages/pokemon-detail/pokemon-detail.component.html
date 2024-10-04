@@ -1,0 +1,44 @@
+
+<main class="main-section-pokemon">
+    <section class="section-details-pokemon">
+        <div class="container-details-pokemon">
+            <div class="navbar">
+                <div class="container-navbar">
+                  <div class="app-title">
+                    <h1>Mis Pokemones <i class="bi bi-person-lines-fill"></i></h1>
+                  </div>
+                  <div class="buttons-navbar">
+                    <button type="button" [routerLink]="['/login']">Logout <i class="bi bi-box-arrow-left"></i></button>
+                  </div>
+                </div>
+            </div>
+            <div class="container-details-pokemon-interior">
+                <div *ngIf="pokemon; else errorTemplate" class="pokemon-detail-container">
+                    <h2>{{ pokemon.name | titlecase }}</h2>
+                    <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name" />
+                    <p><strong>ID:</strong> {{ pokemon.id }}</p>
+                    <p><strong>Alto:</strong> {{ pokemon.height }}</p>
+                    <p><strong>Ancho:</strong> {{ pokemon.weight }}</p>
+                    <p><strong>Experiencia base:</strong> {{ pokemon.base_experience }}</p>
+                    <p><strong>Tipos:</strong>
+                        <span *ngFor="let type of pokemon.types">
+                            {{ type.type.name | titlecase }}
+                        </span>
+                    </p>
+                    <p><strong>Habilidades:</strong>
+                        <span *ngFor="let ability of pokemon.abilities">
+                            {{ ability.ability.name | titlecase }}
+                        </span>
+                    </p>
+                    <p><strong>Valor: </strong> ${{ pokemon.base_experience * 30 }}</p>
+                    <div class="button-payment">
+                        <button type="button" class="button-seguir-viendo" (click)="onPay()">Pagar</button>
+                    </div>
+                </div>
+                <ng-template #errorTemplate>
+                    <p>{{ errorMessage }}</p>
+                </ng-template>
+            </div>
+        </div>
+    </section>
+</main>

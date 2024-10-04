@@ -1,0 +1,73 @@
+
+<main>
+  <section>
+    <nav class="navbar">
+      <img class="navbar-logo" src="assets/Bolita.png" [routerLink]="['/']" />
+      <input type="checkbox" id="toggle" class="navbar-toggle">
+      <label for="toggle" class="navbar-hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+      </label>
+      <ul class="navbar-menu">
+          <li><a [routerLink]="['/']">Inicio</a></li>
+          <li><a [routerLink]="['/login']">Inicio de sesion</a></li>
+          <li><a [routerLink]="['/signup']">Registrese</a></li>
+      </ul>
+  </nav>
+  </section>
+</main>
+
+<main class="main-login">
+  <section class="form-container">
+
+    <div class="container-imagen-odontologica">
+      <img src="assets/Pokemon 3.jpg" class="imagen-odontologica" alt="" />
+    </div>
+  
+    <div class="container-login">
+      <h2>!Entre y saque su cita!</h2>
+
+    <form [formGroup]="formularioLogin" (ngSubmit)="enviarLogin()">
+      
+      <!-- Campo de Email -->
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Ingrese su correo electrónico"
+          formControlName="email" />
+          <!-- Validaciones de email -->
+        <div class="text-danger" *ngIf="hasErrors('email', 'required')">
+          <p>El correo electrónico es requerido.</p>
+        </div>
+        <div class="text-danger" *ngIf="hasErrors('email', 'email')">
+          <p>El formato del correo electrónico es inválido.</p>
+        </div>
+      </div>
+
+      <!-- Campo de Contraseña -->
+      <div class="form-group">
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" placeholder="Ingrese su contraseña"
+          formControlName="password" />
+          <!-- Validaciones de password -->
+        <div class="text-danger" *ngIf="hasErrors('password', 'required')">
+          <p>La contraseña es requerida</p>
+        </div>
+        <div class="text-danger" *ngIf="hasErrors('password', 'minlength')">
+          <p>La contraseña debe tener al menos 6 caracteres.</p>
+        </div>
+        <div class="text-danger" *ngIf="hasErrors('password', 'maxlength')">
+          <p>La contraseña debe tener máximo 50 caracteres.</p>
+        </div>
+      </div>
+
+      <!-- Botón de Iniciar Sesión -->
+      <button type="submit" [disabled]="formularioLogin.invalid" class="button-login">Iniciar Sesión</button>
+    </form>
+    <p class="switch-form">
+      ¿No tiene cuenta? <a routerLink="/login" class="recupere-password" [routerLink]="['/signup']">¡Registrese!</a>
+    </p>
+    </div>
+  </section>
+</main>
+  

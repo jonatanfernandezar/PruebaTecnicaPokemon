@@ -1,0 +1,183 @@
+
+/* Estilos generales */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para el navbar */
+
+.navbar {
+    background: rgb(131, 58, 180);
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(123, 29, 253, 1) 50%, rgba(252, 176, 69, 1) 100%);
+}
+
+.container-navbar {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    height: 60px;
+}
+
+.container-navbar .app-title {
+    width: 30%;
+    overflow: hidden;
+}
+
+.container-navbar .app-title h1 {
+    font-size: 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 10px;
+}
+
+.buttons-navbar {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    margin-right: 10px;
+}
+
+.buttons-navbar button {
+    background-color: blueviolet;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+}
+
+.buttons-navbar button:hover {
+    background-color: palevioletred;
+}
+
+.bi-person-up,
+.bi-person-add,
+.bi-box-arrow-left {
+    font-size: 1.2rem;
+}
+
+.bi-person-lines-fill {
+    color: orange;
+    margin-left: 15px;
+}
+
+/* Detalles del pokemon: */
+
+.container-details-pokemon-interior {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.container-details-pokemon {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: gainsboro;
+}
+
+.pokemon-detail-container {
+    padding: 30px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    cursor: pointer;
+    border-radius: 7px 0 0 7px;
+}
+
+.pokemon-detail-container:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+.pokemon-detail-container img {
+    display: block;
+    margin: 0 auto;
+    max-width: 200px;
+    transition: transform 0.3s;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    border: 2px solid rgb(0, 145, 255);
+}
+
+.pokemon-detail-container h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #ffcb05;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.pokemon-detail-container p {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #333;
+    border-bottom: 1px solid rgb(0, 106, 255);
+    width: 100%;
+}
+
+.pokemon-detail-container strong {
+    color: #007bff;
+}
+
+.pokemon-detail-container span {
+    display: inline-block;
+    margin-right: 5px;
+    padding: 3px 7px;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    color: #555;
+}
+
+.pokemon-detail-container span:hover {
+    background-color: #007bff;
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Metodos de pagos: */
+
+.payment-methods {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 0 7px 7px 0;
+    background-color: #fff;
+    border: transparent;
+}
+
+.payment-methods .button-method-payment button {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.payment-methods .button-payment button {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.button-seguir-viendo {
+    width: 100%;
+    padding: 5px;
+    background-color: rgb(0, 170, 255);
+    color: #fff;
+    border-radius: 5px;
+    border: 1px solid;
+    margin-top: 20px;
+}
+
+.button-seguir-viendo:hover {
+    background-color: palevioletred;
+}

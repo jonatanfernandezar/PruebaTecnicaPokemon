@@ -1,0 +1,16 @@
+<div class="dashboard-container">
+    <aside class="sidebar">
+        <nav>
+            <ul>
+                <li><a routerLink="/dashboard-super-admin">Inicio</a></li>
+                <li><a routerLink="/dashboard-super-admin/gestion-compras">Gestión de compras</a></li>
+                <li><a class="" (click)="logout()">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="content">
+        <!-- Este router-outlet es donde se cargan los componentes dinámicos -->
+        <router-outlet></router-outlet>
+    </main>
+</div>

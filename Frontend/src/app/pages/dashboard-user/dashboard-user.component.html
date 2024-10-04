@@ -1,0 +1,35 @@
+<main class="main-lista-pokemon">
+    <section class="section-lista-pokemon">
+        <div class="container-lista-pokemon">
+            <div class="navbar">
+                <div class="container-navbar">
+                  <div class="app-title">
+                    <h1>Mis Pokemones <i class="bi bi-person-lines-fill"></i></h1>
+                  </div>
+                  <div class="buttons-navbar">
+                    <button type="button" [routerLink]="['/login']">Logout <i class="bi bi-box-arrow-left"></i></button>
+                  </div>
+                </div>
+            </div>
+            <div *ngIf="errorMessage; else pokemonListTemplate">
+                <p>{{ errorMessage }}</p>
+            </div>
+            <ng-template #pokemonListTemplate>
+                <ul class="pokemon-list">
+                    <li *ngFor="let pokemon of pokemonList" class="pokemon-item"
+                        (click)="viewPokemonDetails(pokemon.id)">
+                        <h3>{{ pokemon.name | titlecase }}</h3>
+                        <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name" class="pokemon-image" />
+                        <p><strong>Altura:</strong> {{ pokemon.height }}</p>
+                        <p><strong>Ancho:</strong> {{ pokemon.weight }}</p>
+                        <p><strong>Tipos:</strong>
+                            <span *ngFor="let type of pokemon.types">
+                                {{ type.type.name | titlecase }}
+                            </span>
+                        </p>
+                    </li>
+                </ul>
+            </ng-template>
+        </div>
+    </section>
+</main>

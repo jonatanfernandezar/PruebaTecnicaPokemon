@@ -1,0 +1,94 @@
+<main>
+  <section>
+    <nav class="navbar">
+      <img class="navbar-logo" src="assets/Bolita.png" [routerLink]="['/']" />
+      <input type="checkbox" id="toggle" class="navbar-toggle">
+      <label for="toggle" class="navbar-hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <ul class="navbar-menu">
+        <li><a [routerLink]="['/']">Inicio</a></li>
+        <li><a [routerLink]="['/login']">Inicio de sesion</a></li>
+        <li><a [routerLink]="['/signup']">Registrese</a></li>
+      </ul>
+    </nav>
+  </section>
+</main>
+
+<main class="main-login">
+  <section class="form-container">
+
+    <div class="container-imagen-odontologica">
+      <img src="assets/Pokemon 4.jpg" class="imagen-odontologica" alt="Imagen odontológica" />
+    </div>
+
+    <div class="container-signup">
+      <h2>¡Regístrese!</h2>
+      <form [formGroup]="formularioSignUp" (ngSubmit)="enviarSignUp()">
+
+        <!-- Campo de nombre -->
+        <div class="form-group">
+          <label for="name">Nombre completo:</label>
+          <input type="text" id="name" placeholder="Ingrese su nombre completo" formControlName="name" />
+          <!--Validaciones del nombre -->
+          <div class="text-danger" *ngIf="hasErrors('name', 'required')"><p>El nombre es requerido</p></div>
+        </div>
+
+        <!-- Campo de Email -->
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" placeholder="Ingrese su correo electrónico"
+            [ngClass]="{'is-invalid': hasErrors('email', 'required') || hasErrors('email', 'email')}"
+            class="form-control" formControlName="email" />
+          <!--Validaciones del Email-->
+          <div class="text-danger" *ngIf="hasErrors('email', 'email')"><p>Formato de Email invalido</p> </div>
+          <div class="text-danger" *ngIf="hasErrors('email', 'required')"><p>El email es requerido</p></div>
+        </div>
+
+        <!-- Campo de Password -->
+        <div formGroupName="passwordGroup">
+          <div class="form-group">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" placeholder="Ingrese su contraseña"
+              [ngClass]="{'is-invalid': hasErrors('password', 'required', 'passwordGroup')}" class="form-control"
+              formControlName="password" />
+            <!--Validaciones del password -->
+            <div class="text-danger" *ngIf="hasErrors('password', 'required', 'passwordGroup')"><p>La contraseña es
+              requerida</p>
+            </div>
+            <div class="text-danger" *ngIf="hasErrors('password', 'minlength', 'passwordGroup')"><p>La contraseña debe
+              tener al menos 6 caracteres.</p>
+            </div>
+            <div class="text-danger" *ngIf="hasErrors('password', 'maxlength', 'passwordGroup')">
+              <p>La contraseña no puede tener más de 20 caracteres.</p>
+            </div>
+          </div>
+
+          <!-- Campo de repeat Password -->
+          <div class="form-group">
+            <label for="repeatPassword">Repetir contraseña</label>
+            <input type="password" id="repeatPassword" placeholder="Ingrese su contraseña"
+              [ngClass]="{'is-invalid': hasErrors('repeatPassword', 'required', 'passwordGroup')}" class="form-control"
+              formControlName="repeatPassword" />
+          </div>
+          <!--Validaciones del repeat Password-->
+          <div class="container-validaciones-password">
+            <div class="text-danger" *ngIf="formularioSignUp.get('passwordGroup')?.hasError('passwordsMismatch')">
+              <p>Las contraseñas no coinciden</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Boton de registrarse -->
+        <button type="submit" [disabled]="formularioSignUp.invalid">Registrarse</button>
+      </form>     
+
+      <p class="switch-form">
+        ¿Tiene cuenta? <a routerLink="/login" class="recupere-password">¡Inicie sesión!</a>
+      </p>
+
+    </div>
+  </section>
+</main>

@@ -1,0 +1,32 @@
+<!-- src/app/purchases/purchases.component.html -->
+
+<h2>Lista de Compras</h2>
+
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+<table *ngIf="purchases.length > 0">
+    <thead>
+        <tr>
+            <th>ID de Compra</th>
+            <th>ID del Pagador</th>
+            <th>Correo del Pagador</th>
+            <th>Estado</th>
+            <th>Monto</th>
+            <th>Moneda</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let purchase of purchases">
+            <td>{{ purchase.id }}</td>
+            <td>{{ purchase.payer_id }}</td>
+            <td>{{ purchase.payer_email }}</td>
+            <td>{{ purchase.status }}</td>
+            <td>{{ purchase.transaction_amount }}</td>
+            <td>{{ purchase.currency_id }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="purchases.length === 0" class="no-purchases">
+    No hay compras disponibles.
+</div>

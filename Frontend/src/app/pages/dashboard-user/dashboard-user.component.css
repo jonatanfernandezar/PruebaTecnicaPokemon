@@ -1,0 +1,159 @@
+
+/* Estilos generales */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos para el navbar */
+
+.navbar {
+  background: rgb(131, 58, 180);
+  background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(123, 29, 253, 1) 50%, rgba(252, 176, 69, 1) 100%);
+}
+
+.container-navbar {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  height: 60px;
+}
+
+.container-navbar .app-title {
+  width: 30%;
+  overflow: hidden;
+}
+
+.container-navbar .app-title h1 {
+  font-size: 2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 10px;
+}
+
+.buttons-navbar {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  margin-right: 10px;
+}
+
+.buttons-navbar button {
+  background-color: blueviolet;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+}
+
+.buttons-navbar button:hover {
+  background-color: palevioletred;
+}
+
+.bi-person-up,
+.bi-person-add,
+.bi-box-arrow-left {
+  font-size: 1.2rem;
+}
+
+.bi-person-lines-fill {
+  color: orange;
+  margin-left: 15px;
+}
+
+/* Lista de pokemones de la API */
+
+.pokemon-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  background-color: gainsboro;
+  margin-top: 0px;
+  padding: 20px;
+}
+
+.pokemon-item {
+  position: relative;
+  margin: 10px;
+  padding: 15px;
+  width: 220px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.pokemon-item:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pokemon-image {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+  border-radius: 50%;
+  border: 2px solid rgb(0, 145, 255);
+}
+
+.pokemon-item:hover .pokemon-image {
+  transform: scale(1.1);
+}
+
+.pokemon-item h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #333;
+  text-transform: capitalize;
+}
+
+.pokemon-item p {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: #555;
+  border-bottom: 1px solid rgb(0, 106, 255);
+  width: 100%;
+}
+
+.pokemon-item p span {
+  display: inline-block;
+  margin: 0 3px;
+  padding: 2px 5px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  font-size: 0.85em;
+  text-transform: capitalize;
+}
+
+.pokemon-item::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  z-index: 0;
+}
+
+.pokemon-item:hover::before {
+  opacity: 1;
+}
+
